@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c543b4c2c45a6e342baf119a6f5fac86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 3
 --- !u!54 &14854908
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -718,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80095ba1e63c6f74aaf622b7fbf30c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

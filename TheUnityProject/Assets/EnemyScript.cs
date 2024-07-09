@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float cooldown = 3; // Time in seconds between each attack
+
     void Start()
     {
-        print("hej, jeg er ond");
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
