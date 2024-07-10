@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ShootingScript : MonoBehaviour
 {
+    public float rotationSpeed = 90;
+    
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, 0);
+        float rotateAroundY = Input.GetAxisRaw("TurnAround");
+        transform.Rotate(0, rotateAroundY*rotationSpeed*Time.deltaTime, 0);
     }
 }
