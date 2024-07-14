@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,13 @@ public class ShootingScript : MonoBehaviour
     
     public float cooldown;
     float cooldownLeft;
-    
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +31,8 @@ public class ShootingScript : MonoBehaviour
             go.GetComponent<Rigidbody>().velocity = transform.forward * 10;
             
             animator.SetTrigger("Shoot");
+            audioSource.Play();
+            
             cooldownLeft = cooldown;
         }
         cooldownLeft -= Time.deltaTime;

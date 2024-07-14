@@ -7,9 +7,15 @@ public class PlayerScript : MonoBehaviour
     Rigidbody m_RigidBody;
     public Animator animator;
     
+    public int health = 3;
+    
+    int currentHealth;
+    public TMPro.TMP_Text healthText;
+    
     void Start()
     {
         m_RigidBody = GetComponent<Rigidbody>();
+        currentHealth = health;
     }
     
     void Update()
@@ -20,5 +26,24 @@ public class PlayerScript : MonoBehaviour
         m_RigidBody.velocity = velocity;
         
         animator.SetFloat("Speed", velocity.magnitude);
+    }
+    
+    public GameObject gameOverScreen;
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            currentHealth = currentHealth - 1;
+            if (currentHealth <= 0)
+            {
+                healthText.text = "";
+                gameOverScreen.SetActive(true);
+            }
+            else
+            {
+                healthText.text = "Health: " + currentHealth + "/" + health;
+            }
+        }
     }
 }
