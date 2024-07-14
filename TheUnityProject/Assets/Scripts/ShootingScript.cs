@@ -7,6 +7,7 @@ public class ShootingScript : MonoBehaviour
 {
     public float rotationSpeed = 90;
     public GameObject bulletPrefab;
+    public Animator animator;
     
     public float cooldown;
     float cooldownLeft;
@@ -21,6 +22,8 @@ public class ShootingScript : MonoBehaviour
         {
             var go = Instantiate(bulletPrefab ,transform.position,Quaternion.identity);
             go.GetComponent<Rigidbody>().velocity = transform.forward * 10;
+            
+            animator.SetTrigger("Shoot");
             cooldownLeft = cooldown;
         }
         cooldownLeft -= Time.deltaTime;

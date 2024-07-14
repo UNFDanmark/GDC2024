@@ -7,6 +7,7 @@ public class EnemyScript : MonoBehaviour
 
     UnityEngine.AI.NavMeshAgent agent;
     private GameObject player;
+    public Animator animator;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         agent.SetDestination(player.transform.position);
+        animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 
     void OnCollisionEnter(Collision other)
